@@ -1,5 +1,5 @@
 import mysql.connector
-mydb=mysql.connector.connect(host='localhost',user='root',password='',database='bloodbank')
+mydb=mysql.connector.connect(host='localhost',user='root',password='',database='bloodbank1')
 mycursor=mydb.cursor()
 while True:
     print("select an option from the menu")
@@ -18,17 +18,23 @@ while True:
         print("*----ADD ITEM----*")
     
         
-        name=input("enter  name:::---")
+        donername=input("enter  name:::---")
         place=input("enter the place:::---")
-        phone =input("enter the phone number:::---")
         bloodgroup=input("blood group:::---")
-        sql="INSERT INTO `bloodbank`(`name`, `place`, `phone`, `bloodgroup`) VALUES (%s,%s,%s,%s)"
-        data=(name,place,phone,bloodgroup)
+        age =input("enter the age:::---")
+        phone =input("enter the phone number:::---")
+        sql="INSERT INTO `bloodbank` (`donername`, `place`, `bloodgroup`, `age`, `phone`) VALUES (%s,%s,%s,%s,%s)"
+        data=(donername,place,bloodgroup,age,phone)
         mycursor.execute(sql,data)
         mydb.commit()
         print("successfully added...........!")
     elif(choice==2):
-        print("VIEW DETAILS")    
+        print("VIEW DETAILS")  
+        sql="SELECT * FROM `bloodbank`"
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        for i in result:
+            print(i)  
     elif(choice==3):
         print("SEARCH DETAILS")
     elif(choice==4):
