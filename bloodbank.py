@@ -10,7 +10,8 @@ while True:
     print("4.upadte details")
     print("5. delete details")
     print("6. search by name")
-    print("6.exit")
+    print("7.count of blood in each group")
+    print("8.exit")
 
     print("--------------------------------")
 
@@ -70,6 +71,13 @@ while True:
         mycursor.execute(sql)
         result = mycursor.fetchall()
         for i in result:
-            print(i)  
+            print(i)
     elif(choice==7):
+        print("Display count of total number of blood group each category") 
+        sql="SELECT COUNT(*),bloodgroup FROM `bloodbank` GROUP BY bloodgroup" 
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)          
+    elif(choice==8):
         break        
