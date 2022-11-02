@@ -37,6 +37,11 @@ while True:
             print(i)  
     elif(choice==3):
         print("SEARCH DETAILS")
+        donername=input("enter a name:-")
+        sql="SELECT * FROM `bloodbank` WHERE `donername`='"+donername+"'"
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        print(result)
     elif(choice==4):
         print("UPDATE DETAILS") 
     elif(choice==5) :
