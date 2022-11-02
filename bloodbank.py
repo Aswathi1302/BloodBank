@@ -55,5 +55,10 @@ while True:
         print("Data updated successfully....")  
     elif(choice==5) :
         print("DELETE DETAILS")
+        donername=input("enter  name:::---")
+        sql="DELETE FROM `bloodbank` WHERE `donername`='"+donername+"'"
+        mycursor.execute(sql)
+        mydb.commit()
+        print("Data deleted successfully..") 
     elif(choice==6):
         break      
