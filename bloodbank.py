@@ -9,7 +9,9 @@ while True:
     print("3.search details")
     print("4.upadte details")
     print("5. delete details")
+    print("6. search by name")
     print("6.exit")
+
     print("--------------------------------")
 
     
@@ -60,5 +62,14 @@ while True:
         mycursor.execute(sql)
         mydb.commit()
         print("Data deleted successfully..") 
+         
     elif(choice==6):
-        break      
+        print("search a doner  name by character") 
+        character=input("enter a character:-")
+        sql="SELECT `id`, `donername`, `place`, `bloodgroup`, `age`, `phone` FROM `bloodbank` WHERE `donername` LIKE '"+character+"%'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)  
+    elif(choice==7):
+        break        
