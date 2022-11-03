@@ -11,7 +11,8 @@ while True:
     print("5. delete details")
     print("6. search by name")
     print("7.count of blood in each group")
-    print("8.exit")
+    print("8.display average age ")
+    print("9.exit")
 
     print("--------------------------------")
 
@@ -79,6 +80,12 @@ while True:
         result = mycursor.fetchall()
         for i in result:
             print(i)
-                   
+    elif(choice==8)  :
+        print("Display average age of person from blood bank") 
+        sql="SELECT AVG(age) FROM `bloodbank`" 
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)               
     elif(choice==9):
         break        
